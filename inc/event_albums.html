@@ -1,0 +1,62 @@
+<koken:event_album>
+
+	<div class="kpgriditem hover_fade">
+
+		<div class="img-hover">
+			<koken:link title="{{ language.view_title collate='album.title' }}">
+
+				<koken:if data="{{ settings.img_scale }}" equals="uniform">
+
+					<koken:img lazy="true" size="{{ settings.thumb_ratio }}" />
+
+				</koken:if>
+
+				<koken:if data="{{ settings.img_scale }}" equals="normal">
+
+					<koken:img lazy="true" />
+
+				</koken:if>
+
+				<koken:if data="settings.tags_show_title" equals="hover">
+
+					<span class="overlay">
+
+						<span class="overlay_text content_text valign_{{ settings.title_vert_align }}">
+
+							<h2>{{ album.title }}</h2>
+
+							<koken:if true="settings.albums_show_summary">
+								<p>{{ album.summary }}</p>
+							</koken:if>
+
+						</span>
+
+					</span>
+
+				</koken:if>
+
+				<koken:if true="settings.show_content_load_spin"><koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div></koken:if></koken:if>
+
+			</koken:link>
+
+		</div>
+
+		<koken:if data="settings.tags_show_title" equals="under">
+
+			<div class="img-under-title content_text content_text_under">
+
+				<h2>{{ album.title }}</h2>
+
+				<koken:if true="settings.albums_show_summary">
+					<p>{{ album.summary }}</p>
+				</koken:if>
+
+			</div>
+
+		</koken:if>
+
+
+
+	</div>
+
+</koken:event_album>

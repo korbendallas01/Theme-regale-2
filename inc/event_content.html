@@ -1,0 +1,87 @@
+<koken:event_content>
+
+  <div class="kpgriditem hover_fade type_{{ content.file_type }}">
+
+    <koken:link lightbox="{{ settings.use_lightbox }}" class="img-hover">
+
+      <koken:content_video><span class="vid_show vid_play"><i class="kvicon-vid-play"></i>{{ content.duration }}</span></koken:content_video>
+
+      <koken:if data="{{ settings.img_scale_content }}" equals="uniform">
+
+        <koken:img lazy="true" size="{{ settings.thumb_ratio_content }}" />
+
+      </koken:if>
+
+      <koken:if data="{{ settings.img_scale_content }}" equals="normal">
+
+        <koken:img lazy="true" />
+
+      </koken:if>
+
+      <koken:if data="settings.tags_show_title" equals="hover">
+
+        <koken:not empty="content.title">
+
+          <span class="overlay">
+
+            <span class="overlay_wrap">
+
+              <span class="overlay_text content_text valign_{{ settings.title_vert_align }}">
+
+                <h2>
+                  <koken:if true="settings.contents_show_rating">
+                    <koken:rating>
+                      {{ rating }} &nbsp;
+                    </koken:rating>
+                  </koken:if>
+
+                  {{ content.title }}
+                </h2>
+
+                <koken:if true="settings.contents_show_caption">
+                  <p>{{ content.caption }}</p>
+                </koken:if>
+
+              </span>
+
+            </span>
+
+          </span>
+
+        </koken:not>
+
+      </koken:if>
+
+      <koken:if true="settings.show_content_load_spin"><koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div></koken:if></koken:if>
+
+    </koken:link>
+
+    <koken:if data="settings.tags_show_title" equals="under">
+
+      <koken:not empty="content.title">
+
+        <div class="img-under-title content_text">
+
+          <h2>
+            <koken:if true="settings.contents_show_rating">
+              <koken:rating>
+                {{ rating }} &nbsp;
+              </koken:rating>
+            </koken:if>
+
+            {{ content.title }}
+          </h2>
+
+          <koken:if true="settings.contents_show_caption">
+            <p>{{ content.caption }}</p>
+          </koken:if>
+
+        </div>
+
+      </koken:not>
+
+    </koken:if>
+
+  </div>
+
+</koken:event_content>

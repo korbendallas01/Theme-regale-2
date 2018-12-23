@@ -1,0 +1,15 @@
+<header class="essay_show_title_{{ settings.essay_show_title }}">
+
+  <koken:if true="{{ settings.essay_show_date }}"><koken:time /></koken:if>
+
+  <h1 style="display:{{ settings.essay_show_title }}"><koken:link title="{{ language.view_title collate='essay.title' }}">{{ essay.title }}</koken:link></h1>
+
+</header>
+
+{{ essay.content }}
+
+<koken:more>
+  <p>
+      <koken:link title="{{ essay.title }}" class="read_more">{{ essay.read_more_label }}</koken:link>
+  </p>
+</koken:more>

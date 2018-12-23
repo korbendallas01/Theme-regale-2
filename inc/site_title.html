@@ -1,0 +1,13 @@
+<div class="site-title">
+
+	<koken:if data="settings.site_title_type" equals="text">
+		<h1><koken:link to="front" title="{{ language.home }}">{{ site.title }}</koken:link></h1>
+	<koken:else>
+		<koken:not empty="settings.site_title_img_url">
+			<koken:link class="logo" to="front" title="{{ language.home }}"><img src="{{ settings.site_title_img_url }}" alt="{{ site.title }}" class="custom_logo"></koken:link>
+		<koken:else>
+			<span id="title_ph"></span>
+		</koken:not>
+	</koken:if>
+
+</div>

@@ -1,0 +1,105 @@
+<koken:load infinite="true">
+
+<div id="kpgrid">
+
+	<div id="kpgrid_wrap">
+
+		<div id="kpgrid_content" class="{{ settings.spin_style }}">
+
+			<koken:loop>
+
+				<div class="kpgriditem hover_fade">
+
+					<koken:link class="img-hover">
+
+						<koken:featured_image>
+
+							<koken:if data="{{ settings.img_scale_essays }}" equals="uniform">
+
+								<koken:img lazy="true" size="{{ settings.thumb_ratio_essays }}" />
+
+							</koken:if>
+
+							<koken:if data="{{ settings.img_scale_essays }}" equals="normal">
+
+								<koken:img lazy="true" />
+
+							</koken:if>
+
+						</koken:featured_image>
+
+						<koken:if data="settings.essays_show_title" equals="hover">
+
+							<koken:not empty="essay.title">
+
+								<span class="overlay">
+
+									<span class="overlay_wrap">
+
+										<span class="overlay_text content_text valign_{{ settings.title_vert_align }}">
+
+											<h2>{{ essay.title }}</h2>
+
+											<koken:if true="settings.essays_show_excerpt">
+												<p>{{ essay.excerpt }}</p>
+											</koken:if>
+
+										</span>
+
+									</span>
+
+								</span>
+
+							</koken:not>
+
+						</koken:if>
+
+						<koken:if true="settings.show_content_load_spin"><koken:if data="settings.spin_style" equals="halfcirc"><div class="spinner_pos"><div class="spinner"></div></div></koken:if></koken:if>
+
+					</koken:link>
+
+					<koken:if data="settings.essays_show_title" equals="under">
+
+						<koken:not empty="essay.title">
+
+							<div class="img-under-title content_text">
+
+								<h2>
+									<koken:link title="{{ essay.title }}">
+										{{ essay.title }}
+									</koken:link>
+								</h2>
+
+								<koken:if true="settings.essays_show_excerpt">
+									<p>{{ essay.excerpt }}</p>
+								</koken:if>
+
+							</div>
+
+						</koken:not>
+
+					</koken:if>
+
+				</div>
+
+			</koken:loop>
+
+		</div>
+
+	</div>
+
+</div>
+
+<koken:else>
+
+	<koken:note>
+
+	  <strong>No essays found.</strong> Write some in Text.
+
+	</koken:note>
+
+</koken:load>
+
+<koken:include file="inc/pillar_regale.html" />
+
+<koken:keyboard_scroll element=".pillar .kpgriditem" />

@@ -1,0 +1,71 @@
+<header class="cover inset_{{ settings.cover_inset }}">
+
+	<koken:background lazy="true" id="cover_bg">
+
+		<div class="cover_inside cover_style_{{ settings.cover_layout }}">
+
+			<div class="cover_content">
+
+				<h1>
+					<a href="#content" data-bind-to-key="down" class="cover_scroll_link no_b">
+						{{ essay.title }}
+					</a>
+				</h1>
+
+				<div class="cover_desc">
+					{{ essay.excerpt paragraphs="true" }}
+				</div>
+
+				<koken:if true="settings.cover_show_meta">
+
+					<koken:topics>
+		              <p class="meta" id="essay_topics">
+		                   See more in
+		                   <koken:loop separator=", ">
+		                        <koken:link title="{{ language.view_title collate='title' }}">
+		                             {{ title }}
+		                        </koken:link>
+		                   </koken:loop>
+		              </p>
+			         </koken:topics>
+
+					<koken:categories>
+					<p class="meta">
+						<koken:loop separator=", ">
+							<koken:link title="{{ language.view_all_essays_in_title collate='category.title' }}">
+								{{ category.title }}
+							</koken:link>
+						</koken:loop>
+					</p>
+					</koken:categories>
+					<koken:tags>
+					<p class="meta">
+						<koken:loop separator=" "><koken:link title="{{ language.view_all_essays_in_title collate='tag.title' }}" class="tag">{{ tag.title }}</koken:link>&nbsp;</koken:loop>
+					</p>
+					</koken:tags>
+
+				</koken:if>
+
+				<koken:if true="settings.social_bttns_show_one">
+
+		            <koken:include file="inc/share-links-icons.html" />
+
+				</koken:if>
+
+			</div> <!-- /.cover_content -->
+
+			<div class="spinner_pos"><div class="spinner"></div></div>
+
+			<koken:if true="{{ settings.cover_show_arrow }}">
+
+				<a id="cover_scroll" href="#content" data-bind-to-key="down" class="cover_scroll_link no_b"><i class="icon-{{ settings.content_arrow_style }}-down"></i></a>
+
+			</koken:if>
+
+		</div> <!-- /.cover_inside -->
+
+		<koken:include file="js/cover_regale.html" />
+
+	</koken:background>
+
+</header>
